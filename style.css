@@ -187,10 +187,21 @@ li.completas .botaoRemover {
 }
 
 .botaoEditar:hover {
-    background-color: #cccccce8;
+    background-color: #969696;
 }
 
 li.completas .botaoEditar {
+    padding: 5px 10px;
+    background-color: #afaeae;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 10px;
+    font-weight:700;
+}
+
+.botaoEditar {
     padding: 5px 10px;
     background-color: #afaeae;
     color: white;
