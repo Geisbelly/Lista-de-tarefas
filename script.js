@@ -127,7 +127,7 @@ function criarItemTarefa(tarefa, concluida = false) {
         novoItem.remove();
     });
 
-    var elementoDiv = createElement('div')
+    var elementoDiv = document.createElement('div')
     elementoDiv.classList.add('Container-Botao-Li')
     elementoDiv.appendChild(botaoEditar)
     elementoDiv.appendChild(botaoRemover)
