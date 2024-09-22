@@ -53,6 +53,9 @@ function carregarTask() {
     var listaPendentes = document.getElementById('tarefas-pendentes');
     var listaConcluidas = document.getElementById('tarefas-concluidas');
 
+    listaPendentes.innerHTML = '';
+    listaConcluidas.innerHTML = '';
+
     pendentes.forEach(function (tarefa) {
         var novoItem = criarItemTarefa(tarefa);
         listaPendentes.appendChild(novoItem);
