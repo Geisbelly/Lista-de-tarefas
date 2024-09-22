@@ -211,3 +211,17 @@ li.completas .botaoEditar {
     font-size: 10px;
     font-weight:700;
 }
+
+
+.inputEdicao[type="text"] {
+    padding: 8px;
+    border: 1px solid #ddd;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.Container-Botao-Li{
+    display: flex;
+    gap: 5px; 
+    margin-left: auto;
+}

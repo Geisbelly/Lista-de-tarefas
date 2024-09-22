@@ -69,6 +69,7 @@ function carregarTask() {
 
 function editarItem(novoItem, tarefa, concluida) {
     var inputEditar = document.createElement('input');
+    inputEditar.classList.add('inputEdicao')
     inputEditar.type = 'text';
     inputEditar.value = tarefa;
     novoItem.innerHTML = '';
@@ -126,11 +127,15 @@ function criarItemTarefa(tarefa, concluida = false) {
         novoItem.remove();
     });
 
+    var elementoDiv = createElement('div')
+    elementoDiv.classList.add('Container-Botao-Li')
+    elementoDiv.appendChild(botaoEditar)
+    elementoDiv.appendChild(botaoRemover)
+
     novoItem.appendChild(checkbox);
     var texto = document.createTextNode(tarefa);
     novoItem.appendChild(texto);
-    novoItem.appendChild(botaoEditar);
-    novoItem.appendChild(botaoRemover);
+    novoItem.appendChild(elementoDiv);
 
     if (concluida) {
         novoItem.classList.add('completas');
