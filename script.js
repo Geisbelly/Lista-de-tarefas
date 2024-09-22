@@ -71,7 +71,7 @@ function criarItemTarefa(tarefa, concluida = false) {
     checkbox.checked = concluida;
 
     var botaoRemover = document.createElement('button');
-    botaoRemover.textContent = 'Remover';
+    botaoRemover.innerHTML = '<i class="fas fa-trash"></i>';
     botaoRemover.style.marginLeft = '10px';
     botaoRemover.classList.add('botaoRemover')
 
