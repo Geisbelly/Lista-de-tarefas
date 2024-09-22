@@ -222,6 +222,6 @@ li.completas .botaoEditar {
 
 .Container-Botao-Li{
     display: flex;
-    gap: 5px; 
+    gap: 3px; 
     margin-left: auto;
 }
