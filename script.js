@@ -67,7 +67,7 @@ function carregarTask() {
     });
 }
 
-function editarItem(novoItem, tarefa) {
+function editarItem(novoItem, tarefa, concluida) {
     var inputEditar = document.createElement('input');
     inputEditar.type = 'text';
     inputEditar.value = tarefa;
@@ -106,7 +106,7 @@ function criarItemTarefa(tarefa, concluida = false) {
     botaoEditar.classList.add('botaoEditar')
 
     botaoEditar.addEventListener('click', function () {
-        editarItem(novoItem, tarefa);
+        editarItem(novoItem, tarefa, concluida);
     });
 
     var botaoRemover = document.createElement('button');
