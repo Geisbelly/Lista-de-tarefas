@@ -71,12 +71,13 @@ function editarItem(novoItem, tarefa, concluida) {
     var inputEditar = document.createElement('input');
     inputEditar.type = 'text';
     inputEditar.value = tarefa;
-    novoItem.innerHTML = ''; // Limpa o conteúdo do item
-    novoItem.appendChild(inputEditar); // Adiciona o campo de entrada
+    novoItem.innerHTML = '';
+    novoItem.appendChild(inputEditar); 
 
     var botaoSalvar = document.createElement('button');
     botaoSalvar.textContent = 'Salvar';
     botaoSalvar.style.marginLeft = '10px';
+    botaoSalvar.classList.add('botaoSalvar');
 
     botaoSalvar.addEventListener('click', function () {
         var textoEditado = inputEditar.value;
@@ -87,10 +88,10 @@ function editarItem(novoItem, tarefa, concluida) {
             pendentes = pendentes.map(t => t === tarefa ? textoEditado : t);
             salvarListaNoLocalStorage("tarefasPendentes", pendentes);
         }
-        carregarTask(); // Recarrega a lista para refletir as mudanças
+        carregarTask(); 
     });
 
-    novoItem.appendChild(botaoSalvar); // Adiciona o botão "Salvar" ao item
+    novoItem.appendChild(botaoSalvar); 
 }
 
 
@@ -103,7 +104,7 @@ function criarItemTarefa(tarefa, concluida = false) {
     var botaoEditar = document.createElement('button');
     botaoEditar.innerHTML = '<i class="fas fa-pencil-alt"></i>';
     botaoEditar.style.marginLeft = '10px';
-    botaoEditar.classList.add('botaoEditar')
+    botaoEditar.classList.add('botaoEditar');
 
     botaoEditar.addEventListener('click', function () {
         editarItem(novoItem, tarefa, concluida);
@@ -112,7 +113,7 @@ function criarItemTarefa(tarefa, concluida = false) {
     var botaoRemover = document.createElement('button');
     botaoRemover.innerHTML = '<i class="fas fa-trash"></i>';
     botaoRemover.style.marginLeft = '10px';
-    botaoRemover.classList.add('botaoRemover')
+    botaoRemover.classList.add('botaoRemover');
 
     botaoRemover.addEventListener('click', function () {
         if (concluida) {
