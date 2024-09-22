@@ -218,10 +218,12 @@ li.completas .botaoEditar {
     border: 1px solid #ddd;
     font-size: 12px;
     font-weight: 400;
+    margin: auto;
 }
 
 .Container-Botao-Li{
     display: flex;
     gap: 3px; 
     margin-left: auto;
+    justify-content: center;
 }
