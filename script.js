@@ -64,11 +64,47 @@ function carregarTask() {
     });
 }
 
+function editarItem(novoItem, tarefa) {
+    var inputEditar = document.createElement('input');
+    inputEditar.type = 'text';
+    inputEditar.value = tarefa;
+    novoItem.innerHTML = ''; // Limpa o conteúdo do item
+    novoItem.appendChild(inputEditar); // Adiciona o campo de entrada
+
+    var botaoSalvar = document.createElement('button');
+    botaoSalvar.textContent = 'Salvar';
+    botaoSalvar.style.marginLeft = '10px';
+
+    botaoSalvar.addEventListener('click', function () {
+        var textoEditado = inputEditar.value;
+        if (concluida) {
+            concluidas = concluidas.map(t => t === tarefa ? textoEditado : t);
+            salvarListaNoLocalStorage("tarefasConcluidas", concluidas);
+        } else {
+            pendentes = pendentes.map(t => t === tarefa ? textoEditado : t);
+            salvarListaNoLocalStorage("tarefasPendentes", pendentes);
+        }
+        carregarTask(); // Recarrega a lista para refletir as mudanças
+    });
+
+    novoItem.appendChild(botaoSalvar); // Adiciona o botão "Salvar" ao item
+}
+
+
 function criarItemTarefa(tarefa, concluida = false) {
     var novoItem = document.createElement('li');
     var checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.checked = concluida;
+
+    var botaoEditar = document.createElement('button');
+    botaoEditar.innerHTML = '<i class="fas fa-pencil-alt"></i>';
+    botaoEditar.style.marginLeft = '10px';
+    botaoEditar.classList.add('botaoEditar')
+
+    botaoEditar.addEventListener('click', function () {
+        editarItem(novoItem, tarefa);
+    });
 
     var botaoRemover = document.createElement('button');
     botaoRemover.innerHTML = '<i class="fas fa-trash"></i>';
@@ -89,6 +125,7 @@ function criarItemTarefa(tarefa, concluida = false) {
     novoItem.appendChild(checkbox);
     var texto = document.createTextNode(tarefa);
     novoItem.appendChild(texto);
+    novoItem.appendChild(botaoEditar);
     novoItem.appendChild(botaoRemover);
 
     if (concluida) {
