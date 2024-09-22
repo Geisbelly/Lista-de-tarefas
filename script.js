@@ -73,6 +73,7 @@ function criarItemTarefa(tarefa, concluida = false) {
     var botaoRemover = document.createElement('button');
     botaoRemover.textContent = 'Remover';
     botaoRemover.style.marginLeft = '10px';
+    botaoRemover.classList.add('botaoRemover')
 
     botaoRemover.addEventListener('click', function () {
         if (concluida) {

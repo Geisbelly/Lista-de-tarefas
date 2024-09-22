@@ -158,3 +158,17 @@ li:hover {
     margin: 0;
     color: #888;
 }
+.botaoRemover{
+    padding: 5px 10px;
+    background-color: #a72828;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 10px;
+    font-weight:700;
+}
+
+.botaoRemover :hover{
+    background-color: #882121;
+}
