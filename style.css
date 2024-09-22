@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+li {
+    list-style: none;
+}
+
+
+#completas li {
+    text-decoration: line-through;
+    color: #888;
+}
+
+
+.completas {
+    text-decoration: line-through;
+    color: #888;
+}
+
+
+body {
+    
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 40px;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+#container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 900px; 
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    margin: auto; 
+    flex-grow: 1;
+}
+
+
+#tarefas {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+
+#concluidas, #pendentes {
+    width: 47%;
+
+}
+
+
+h1 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+
+input[type="text"] {
+    padding: 10px;
+    width: 80%;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 25px;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+
+button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight:700;
+}
+
+
+button:hover {
+    background-color: #218838;
+}
+
+
+h3 {
+    padding-bottom: 2px;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+
+ul {
+    list-style-type: none;
+    padding: 0;
+
+}
+
+
+li {
+    padding: 10px;
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    color: #333;
+    text-align: justify;
+}
+
+
+li input[type="checkbox"] {
+    margin-right: 10px;
+
+}
+
+
+li.completas {
+    text-decoration: line-through;
+    color: #888;
+
+}
+
+
+li:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+
+#rodape {
+    text-align: center;
+    padding: 25px;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+
+#rodape p {
+    margin: 0;
+    color: #888;
+}
