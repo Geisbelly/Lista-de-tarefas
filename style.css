@@ -123,6 +123,7 @@ li {
     align-items: center;
     color: #333;
     justify-content: space-between; /* Para dar espaço entre o texto e o botão */
+    text-align: left;
 }
 
 
