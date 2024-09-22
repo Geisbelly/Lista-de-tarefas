@@ -9,6 +9,7 @@ function obterListaDoLocalStorage(nome) {
 }
 
 
+
 var pendentes = obterListaDoLocalStorage("tarefasPendentes");
 var concluidas = obterListaDoLocalStorage("tarefasConcluidas");
 
@@ -19,6 +20,16 @@ function adicionarItem() {
     var novoItem = document.createElement('li');
     var checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
+
+    var botaoRemover = document.createElement('button');
+    botaoRemover.textContent = 'Remover';
+    botaoRemover.style.marginLeft = '10px';
+
+    botaoRemover.addEventListener('click', function () {
+        lista.removeChild(novoItem);
+        pendentes = pendentes.filter(t => t !== input.value);
+        salvarListaNoLocalStorage("tarefasPendentes", pendentes);
+    });
 
     checkbox.addEventListener('change', function () {
         if (this.checked) {
@@ -31,6 +42,7 @@ function adicionarItem() {
     novoItem.appendChild(checkbox);
     var texto = document.createTextNode(input.value);
     novoItem.appendChild(texto);
+    novoItem.appendChild(botaoRemover);
     lista.appendChild(novoItem);
 
     pendentes.push(input.value);
@@ -73,42 +85,39 @@ function carregarTask() {
     var listaConcluidas = document.getElementById('tarefas-concluidas');
 
     pendentes.forEach(function (tarefa) {
-        var novoItem = document.createElement('li');
-        var checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        novoItem.appendChild(checkbox);
-        var texto = document.createTextNode(tarefa);
-        novoItem.appendChild(texto);
+        var novoItem = criarItemTarefa(tarefa);
         listaPendentes.appendChild(novoItem);
-
-        checkbox.addEventListener('change', function () {
-            if (this.checked) {
-                moverItemParaConcluidas(this);
-            } else {
-                moverItemParaPendentes(this);
-            }
-        });
     });
 
     concluidas.forEach(function (tarefa) {
-        var novoItem = document.createElement('li');
-        var checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.checked = true;
-        novoItem.appendChild(checkbox);
-        var texto = document.createTextNode(tarefa);
-        novoItem.appendChild(texto);
+        var novoItem = criarItemTarefa(tarefa, true);
         listaConcluidas.appendChild(novoItem);
-        novoItem.classList.add('completas');
-
-        checkbox.addEventListener('change', function () {
-            if (this.checked) {
-                moverItemParaConcluidas(this);
-            } else {
-                moverItemParaPendentes(this);
-            }
-        });
     });
+}
+
+function criarItemTarefa(tarefa, concluida = false) {
+    var novoItem = document.createElement('li');
+    var checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.checked = concluida;
+
+    novoItem.appendChild(checkbox);
+    var texto = document.createTextNode(tarefa);
+    novoItem.appendChild(texto);
+
+    if (concluida) {
+        novoItem.classList.add('completas');
+    }
+
+    checkbox.addEventListener('change', function () {
+        if (this.checked) {
+            moverItemParaConcluidas(this);
+        } else {
+            moverItemParaPendentes(this);
+        }
+    });
+
+    return novoItem;
 }
 
 
