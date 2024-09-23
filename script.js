@@ -53,6 +53,7 @@ function moverItemParaConcluidas(checkbox) {
     salvarListaNoLocalStorage("tarefasPendentes", pendentes);
     salvarListaNoLocalStorage("tarefasConcluidas", concluidas);
 
+    atualizarQt();
 }
 
 function moverItemParaPendentes(checkbox) {
@@ -71,6 +72,8 @@ function moverItemParaPendentes(checkbox) {
     
     salvarListaNoLocalStorage("tarefasPendentes", pendentes);
     salvarListaNoLocalStorage("tarefasConcluidas", concluidas);
+
+    atualizarQt();
 
 }
 
@@ -266,4 +269,5 @@ function criarItemTarefa(tarefa, concluida) {
 
 window.onload = function() {
     carregarTask();
+    atualizarQt();
 };
