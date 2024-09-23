@@ -93,6 +93,7 @@ h1 {
     font-size: 15px;
     font-weight: 400;
     font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
 }
 #nova-descricao {
     padding: 10px;
@@ -250,6 +251,7 @@ li.completas .botaoEditar {
 
 .inputData[type="datetime-local"]{
     padding: 8px;
+    cursor: pointer;
     border: 1px solid #ddd;
     font-size: 12px;
     font-weight: 400;
