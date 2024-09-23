@@ -31,6 +31,7 @@ function adicionarItem() {
     input.value = '';
     data.value = '';
     desc.value = '';
+
 }
 
 function moverItemParaConcluidas(checkbox) {
@@ -48,11 +49,9 @@ function moverItemParaConcluidas(checkbox) {
         concluidas.push(tarefaConcluida);
     }
 
-    var elementos = document.getElementsByClassName('concluidaTitle');
-    elementos.textContent += concluidas.length;
-
     salvarListaNoLocalStorage("tarefasPendentes", pendentes);
     salvarListaNoLocalStorage("tarefasConcluidas", concluidas);
+
 }
 
 function moverItemParaPendentes(checkbox) {
@@ -68,13 +67,10 @@ function moverItemParaPendentes(checkbox) {
         concluidas = concluidas.filter(t => t.nome !== texto);
         pendentes.push(tarefaPendente);
     }
-
-    var elementos = document.getElementsByClassName('pendenteTitle');
-    elementos.textContent += pendentes.length;
     
-
     salvarListaNoLocalStorage("tarefasPendentes", pendentes);
     salvarListaNoLocalStorage("tarefasConcluidas", concluidas);
+
 }
 
 function carregarTask() {
@@ -87,12 +83,28 @@ function carregarTask() {
     pendentes.forEach(function (tarefa) {
         var novoItem = criarItemTarefa(tarefa, false);
         listaPendentes.appendChild(novoItem);
+
     });
 
     concluidas.forEach(function (tarefa) {
         var novoItem = criarItemTarefa(tarefa, true);
         listaConcluidas.appendChild(novoItem);
+
     });
+
+    atualizarQt()
+}
+
+function atualizarQt(){
+    if (pendentes.length === 0)
+        document.querySelector('.pendenteTitle').textContent = `Pendentes`;
+    else
+        document.querySelector('.pendenteTitle').textContent = `Pendentes (${pendentes.length})`;
+
+    if (concluidas.length === 0)
+        document.querySelector('.concluidaTitle').textContent = `Concluídas`;
+    else
+        document.querySelector('.concluidaTitle').textContent = `Concluídas (${concluidas.length})`;
 }
 
 function formatarDataHora(horario){
@@ -161,6 +173,7 @@ function editarItem(novoItem, tarefa, concluida) {
             salvarListaNoLocalStorage("tarefasPendentes", pendentes);
         }
         carregarTask(); 
+
     });
 
     
@@ -213,6 +226,7 @@ function criarItemTarefa(tarefa, concluida) {
             salvarListaNoLocalStorage("tarefasPendentes", pendentes);
         }
         novoItem.remove();
+        atualizarQt()
     });
 
     var elementoDiv = document.createElement('div')
@@ -243,6 +257,7 @@ function criarItemTarefa(tarefa, concluida) {
         } else {
             moverItemParaPendentes(this);
         }
+        atualizarQt()
     });
 
     return novoItem;
