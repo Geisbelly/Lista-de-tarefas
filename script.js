@@ -78,7 +78,7 @@ function carregarTask() {
     listaConcluidas.innerHTML = '';
 
     pendentes.forEach(function (tarefa) {
-        var novoItem = criarItemTarefa(tarefa);
+        var novoItem = criarItemTarefa(tarefa, false);
         listaPendentes.appendChild(novoItem);
     });
 
@@ -160,7 +160,7 @@ function editarItem(novoItem, tarefa, concluida) {
 }
 
 
-function criarItemTarefa(tarefa, concluida = false) {
+function criarItemTarefa(tarefa, concluida) {
     var novoItem = document.createElement('li');
     var checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
