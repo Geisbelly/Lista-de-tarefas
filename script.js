@@ -48,6 +48,9 @@ function moverItemParaConcluidas(checkbox) {
         concluidas.push(tarefaConcluida);
     }
 
+    var elementos = document.getElementsByClassName('concluidaTitle');
+    elementos.textContent += concluidas.length;
+
     salvarListaNoLocalStorage("tarefasPendentes", pendentes);
     salvarListaNoLocalStorage("tarefasConcluidas", concluidas);
 }
@@ -65,6 +68,10 @@ function moverItemParaPendentes(checkbox) {
         concluidas = concluidas.filter(t => t.nome !== texto);
         pendentes.push(tarefaPendente);
     }
+
+    var elementos = document.getElementsByClassName('pendenteTitle');
+    elementos.textContent += pendentes.length;
+    
 
     salvarListaNoLocalStorage("tarefasPendentes", pendentes);
     salvarListaNoLocalStorage("tarefasConcluidas", concluidas);
