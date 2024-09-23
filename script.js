@@ -177,10 +177,11 @@ function editarItem(novoItem, tarefa, concluida) {
             salvarListaNoLocalStorage("tarefasPendentes", pendentes);
         }
         carregarTask(); 
+        atualizarQt();
 
     });
 
-    
+    atualizarQt();
 }
 
 
