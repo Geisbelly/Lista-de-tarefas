@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
 
@@ -33,6 +34,7 @@ body {
     flex-direction: column;
 
 }
+
 
 
 #container {
@@ -71,20 +73,42 @@ h1 {
 }
 
 
-input[type="text"] {
+#nova-tarefa {
     padding: 10px;
-    width: 80%;
+    width: 50%;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 7px;
+    font-size: 15px;
+    font-weight: 400;
+}
+#nova-prazo {
+    padding: 10px;
+    width: 30%;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 7px;
+    font-size: 15px;
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#nova-descricao {
+    padding: 10px;
+    width: 67.5%;
     margin-right: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
     margin-bottom: 25px;
     font-size: 15px;
     font-weight: 400;
+    margin-left: 10px;
 }
 
 
 button {
-    padding: 10px 20px;
+    padding: 10px 18px;
     background-color: #28a745;
     color: white;
     border: none;
@@ -92,8 +116,12 @@ button {
     cursor: pointer;
     font-size: 15px;
     font-weight:700;
+
 }
 
+.add{
+    margin-right: 18px;
+}
 
 button:hover {
     background-color: #218838;
@@ -119,11 +147,9 @@ li {
     background-color: #f9f9f9;
     margin-bottom: 10px;
     border-radius: 5px;
-    display: flex;
-    align-items: center;
     color: #333;
-    justify-content: space-between;
     text-align: left;
+    
 }
 
 
@@ -214,16 +240,96 @@ li.completas .botaoEditar {
 
 
 .inputEdicao[type="text"] {
-    padding: 8px;
+    padding: 9px;
     border: 1px solid #ddd;
     font-size: 12px;
     font-weight: 400;
     margin: auto;
+    border-radius: 5px;
+}
+
+.inputData[type="datetime-local"]{
+    padding: 8px;
+    border: 1px solid #ddd;
+    font-size: 12px;
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: auto;
+    border-radius: 5px;
+}
+
+.inputDesc[type="text"] {
+    width: 95%;
+    padding: 9px;
+    border: 1px solid #ddd;
+    font-size: 12px;
+    font-weight: 400;
+    margin: auto;
+    border-radius: 5px;
 }
 
 .Container-Botao-Li{
     display: flex;
     gap: 3px; 
     margin-left: auto;
-    justify-content: center;
+
 }
+
+.Cab-Task {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    align-items: center;
+
+}
+
+.prazoTarefa {
+    font-size: 12px;
+}
+
+.descTarefa {
+    font-size: 12px;
+}
+
+.nomeTarefa {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.Div-Task{
+    flex-direction: column;
+    display: flex;
+}
+
+.divPrin {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: center;
+
+}
+
+.divPri {
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    justify-content: center;
+    
+}
+
+.divSec {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Alinha o botão ao centro da div */
+    margin-top: 8px;
+    
+}
+
+.botaoSalvar {
+    width: 75%;
+    margin-top: 15px;
+    margin-right: 10px;
+
+}
+

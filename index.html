@@ -23,8 +23,20 @@
         <div>
 
             <h3>Adicionar Tarefa</h3>
-            <input id="nova-tarefa" type="text" placeholder="Escreva a sua tarefa ..."> <button onclick="adicionarItem();">Adicionar</button>
+            <div id="principal">
+                <div id="pri">
+                    <input id="nova-tarefa" type="text" placeholder="Titulo da tarefa"> 
+                    <input id="nova-prazo" type="datetime-local">
+                
+                </div>
 
+                <div id="sec">
+                
+                    <input id="nova-descricao" type="text" placeholder="Descreva a sua tarefa ..."> 
+                    <button class="add" onclick="adicionarItem();">Adicionar</button>
+
+                </div>
+            </div>
         </div>
 
         <div id="tarefas">
