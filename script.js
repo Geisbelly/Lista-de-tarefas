@@ -32,6 +32,7 @@ function adicionarItem() {
     data.value = '';
     desc.value = '';
 
+    atualizarQt()
 }
 
 function moverItemParaConcluidas(checkbox) {
